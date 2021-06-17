@@ -14,23 +14,30 @@ let Element=function(x,y,speed,size,content){
         ctx.fillText(this.content, this.x, this.y);
     },
     // l'élément se deplace
-    this.move=function(){
+    this.elementMove=function(){
         this.x -= this.speed;
         if ((this.x <= 0)||(this.x+this.size >= canvas.width)){
             this.y += this.size;
             this.speed = -this.speed;
         }          
     }
-    // dessin de la balle d'un élément
-    this.drawShoot = function(sizeShoot, color, contentShoot){
+    //dessin de la balle d'un élément
+    this.drawShoot = function(sizeShoot, color, contentShoot, posYShoot){
         ctx.font = sizeShoot + this.mesure + 'serif';
         ctx.fillStyle = color;
-        ctx.fillText(contentShoot, this.x+this.middle, this.y);        
+        ctx.fillText(contentShoot, this.x+this.middle,posYShoot);        
     }
-    this.moveShoot = function(){
+    this.moveShoot = function(posYShoot){
+        posYShoot -= this.speed;
         
     }
-    this.shoot = function(){
+    this.shoot = function(sizeShoot, color, contentShoot, status){
+        this.posXShoot = posXShoot;
+        this.posYShoot = posYShoot;
+        this.status = status;
+        ctx.font = sizeShoot + this.mesure + 'serif';
+        ctx.fillStyle = color;
+        ctx.fillText(contentShoot, this.posXShoot, this.posYShoot);   
 
     }
 }

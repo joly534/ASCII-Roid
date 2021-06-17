@@ -6,19 +6,20 @@ window.addEventListener("keydown", function (event) {
         
       // le joueur bouge     
       case "ArrowLeft":
-        ctx.clearRect(0,500,canvas.width, 600);
         player.x -= player.speed;
         player.draw();
         break;
-      case "ArrowRight":  
-      ctx.clearRect(0,500,canvas.width, 600);      
+      case "ArrowRight":     
         player.x += player.speed;
         player.draw();
         break; 
 
       //le joueur tire
-      case " ":    
-        player.drawShoot(5, 'lime', '֎', player.x + middlePlayer, canvas.height - 100);
+      case " ":            
+        function update(){
+          player.drawShoot(5, 'lime', '֎', player.x + middlePlayer, canvas.height - 100);
+          player.shootMove();
+        }
       break;
       default:
         return; // Quitter lorsque cela ne gère pas l'événement touche.
