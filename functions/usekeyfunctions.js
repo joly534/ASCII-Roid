@@ -1,3 +1,5 @@
+
+
 window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
       return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
@@ -11,10 +13,15 @@ window.addEventListener("keydown", function (event) {
       case "ArrowRight":     
         player.x += player.speed;
         player.draw();
-        break; 
+        break;
+        
+      case "Enter":
+        game === 'Jouez';
+        console.log('entrée appuyée');
+        break;
 
       //le joueur tire
-      case " ":       
+      case "Shift":       
           console.log('shoot')
           player.drawShoot('lime', '֎', player.x, canvas.height - 100);
       break;
