@@ -22,10 +22,10 @@ let Element=function(x,y,speed,size,content){
         }         
     }
     //dessin de la balle d'un élément
-    this.drawShoot = function(sizeShoot, color, contentShoot, posYShoot){
+    this.drawShoot = function(sizeShoot, color, contentShoot, posXShoot, posYShoot){
         ctx.font = sizeShoot + this.mesure + 'serif';
         ctx.fillStyle = color;
-        ctx.fillText(contentShoot, this.x+this.middle,posYShoot);        
+        ctx.fillText(contentShoot, posXShoot,posYShoot);        
     }
     this.shoot = function(sizeShoot, color, contentShoot, status){
         this.posXShoot = posXShoot;

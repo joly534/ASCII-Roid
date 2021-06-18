@@ -14,11 +14,9 @@ window.addEventListener("keydown", function (event) {
         break; 
 
       //le joueur tire
-      case " ":            
-        function update(){
+      case " ":       
+          console.log('shoot')
           player.drawShoot(5, 'lime', '֎', player.x + middlePlayer, canvas.height - 100);
-          player.shootMove();
-        }
       break;
       default:
         return; // Quitter lorsque cela ne gère pas l'événement touche.
