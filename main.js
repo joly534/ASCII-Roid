@@ -32,7 +32,7 @@ function update(){
         escadron[i].elementMove();
     }  
     player.draw('lime')
-    player.drawShoot(5, 'lime', '֎', player.x + middlePlayer, canvas.height - 100 );
+    
     
     window.requestAnimationFrame(update);
 }
