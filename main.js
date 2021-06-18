@@ -5,14 +5,13 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let middleWidth = canvas.width/2;
 let middleHeight = canvas.height/2;
-
 let escadron = [];
 let posX = 80;
 let posY = 50;
 let state=true;
 for (let i=1;i<=6;i++) {
     for (let j=1;j<=9;j++){
-        let alien = new Element(posX,posY, 1, 20, "╬", "", "", '');
+        let alien = new Element(posX,posY, 20, 20, "╬", "", "", '');
         escadron.push(alien);
         posX += 80;
     };
@@ -31,8 +30,6 @@ function update(){
     for (let i=0;i<escadron.length;i++){
         escadron[i].draw('white');
         escadron[i].elementMove();
-        escadron[i].drawShoot(10, 'lime', '.',escadron[i].x, escadron[i].y);
-        escadron[i].moveShoot(escadron[i].y);
     }  
     player.drawShoot(5, 'lime', '֎', player.x + middlePlayer, canvas.height - 100 );
     

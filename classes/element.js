@@ -19,17 +19,13 @@ let Element=function(x,y,speed,size,content){
         if ((this.x <= 0)||(this.x+this.size >= canvas.width)){
             this.y += this.size;
             this.speed = -this.speed;
-        }          
+        }         
     }
     //dessin de la balle d'un élément
     this.drawShoot = function(sizeShoot, color, contentShoot, posYShoot){
         ctx.font = sizeShoot + this.mesure + 'serif';
         ctx.fillStyle = color;
         ctx.fillText(contentShoot, this.x+this.middle,posYShoot);        
-    }
-    this.moveShoot = function(posYShoot){
-        posYShoot -= this.speed;
-        
     }
     this.shoot = function(sizeShoot, color, contentShoot, status){
         this.posXShoot = posXShoot;

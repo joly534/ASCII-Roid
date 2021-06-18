@@ -3,7 +3,6 @@ window.addEventListener("keydown", function (event) {
       return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
     }  
     switch (event.key) { 
-        
       // le joueur bouge     
       case "ArrowLeft":
         player.x -= player.speed;
