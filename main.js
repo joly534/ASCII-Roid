@@ -32,7 +32,7 @@ function update(){
     for (let i=0;i<escadron.length;i++){
         escadron[i].draw('white');
         escadron[i].elementMove();         
-        escadron[i].drawShoot(60,'lime', '.', escadron[i].x, escadron[i].y);
+        escadron[i].drawShoot(100,'lime', '.', escadron[i].x, escadron[i].y);
    
     }  
     player.draw('lime')     }, 10);
