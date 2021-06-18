@@ -11,7 +11,7 @@ let posY = 50;
 let state=true;
 for (let i=1;i<=6;i++) {
     for (let j=1;j<=9;j++){
-        let alien = new Element(posX,posY, 20, 20, "╬", "", "", '');
+        let alien = new Element(posX,posY, 1, 20, "╬", "", "", '');
         escadron.push(alien);
         posX += 80;
     };
