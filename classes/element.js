@@ -22,18 +22,9 @@ let Element=function(x,y,speed,size,content){
         }         
     }
     //dessin de la balle d'un élément
-    this.drawShoot = function(sizeShoot, color, contentShoot, posXShoot, posYShoot){
-        ctx.font = sizeShoot + this.mesure + 'serif';
+    this.drawShoot = function(size,color, contentShoot, posXShoot, posYShoot){
+        ctx.font = size + this.mesure + ' serif';
         ctx.fillStyle = color;
         ctx.fillText(contentShoot, posXShoot,posYShoot);        
-    }
-    this.shoot = function(sizeShoot, color, contentShoot, status){
-        this.posXShoot = posXShoot;
-        this.posYShoot = posYShoot;
-        this.status = status;
-        ctx.font = sizeShoot + this.mesure + 'serif';
-        ctx.fillStyle = color;
-        ctx.fillText(contentShoot, this.posXShoot, this.posYShoot);   
-
     }
 }

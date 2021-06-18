@@ -1,8 +1,8 @@
 let canvas = document.getElementById('earth');
 let ctx=canvas.getContext('2d');
 
-canvas.width=1000;
-canvas.height=600;
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 let middleWidth = canvas.width/2;
 let middleHeight = canvas.height/2;
 let escadron = [];
@@ -26,18 +26,18 @@ let middlePlayer = player.size/2;
 // fonction MAIN
 function update(){
     // on efface l'intégralité de la page à chaque frame
+    setInterval(() => {   
     ctx.clearRect(0,0,canvas.width, canvas.height);
+    
     for (let i=0;i<escadron.length;i++){
         escadron[i].draw('white');
-        escadron[i].elementMove();
-        setInterval(() => {            
-            escadron[i].drawShoot(10, 'red', '.');
-        }, 1000);
+        escadron[i].elementMove();         
+        escadron[i].drawShoot(60,'lime', '.', escadron[i].x, escadron[i].y);
+   
     }  
-    player.draw('lime')
+    player.draw('lime')     }, 10);
     
     
-    window.requestAnimationFrame(update);
 }
 
-window.requestAnimationFrame(update);
+update();
