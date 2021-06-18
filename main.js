@@ -1,8 +1,8 @@
 let canvas = document.getElementById('earth');
 let ctx=canvas.getContext('2d');
 
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+canvas.width=1000;
+canvas.height=600;
 let middleWidth = canvas.width/2;
 let middleHeight = canvas.height/2;
 let escadron = [];
@@ -30,6 +30,9 @@ function update(){
     for (let i=0;i<escadron.length;i++){
         escadron[i].draw('white');
         escadron[i].elementMove();
+        setInterval(() => {            
+            escadron[i].drawShoot(10, 'red', '.');
+        }, 1000);
     }  
     player.draw('lime')
     
