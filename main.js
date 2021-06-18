@@ -26,17 +26,18 @@ let middlePlayer = player.size/2;
 // fonction MAIN
 function update(){
     // on efface l'intégralité de la page à chaque frame
-    setInterval(() => {   
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    
-    for (let i=0;i<escadron.length;i++){
-        escadron[i].draw('white');
-        escadron[i].elementMove();         
-        escadron[i].drawShoot(100,'lime', '.', escadron[i].x, escadron[i].y);
-   
-    }  
-    player.draw('lime')     }, 10);
-    
+    setInterval(() => {
+        ctx.clearRect(0,0,canvas.width, canvas.height);
+        
+        for (let i=0;i<escadron.length;i++){
+            escadron[i].draw('white');
+            escadron[i].elementMove();        
+            escadron[i].drawShoot(100,'lime', '.', escadron[i].x, escadron[i].y);
+       
+        }  
+        player.draw('lime');  
+        
+    }, 10); 
     
 }
 
