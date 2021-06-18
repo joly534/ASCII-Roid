@@ -4,6 +4,7 @@
 }
 
 #earth{
-    background-color: black;
+    background-image:url('images/space1.jpg');
+    background-size:cover;
     margin: auto;
 }

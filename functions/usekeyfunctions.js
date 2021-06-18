@@ -22,7 +22,8 @@ window.addEventListener("keydown", function (event) {
 
       //le joueur tire
       case "Shift":       
-          console.log('shoot')
+          console.log('shoot');
+          let tir = new Element()
           player.drawShoot('lime', '֎', player.x, canvas.height - 100);
       break;
       default:
