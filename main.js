@@ -27,7 +27,7 @@ for (let i=1;i<=6;i++) {
 }
 setInterval(() => {
     for (i=0;i<escadron.length;i++){
-        let projectile = new Element(escadron[i].x, escadron[i].y, 100,10, '|'); 
+        let projectile = new Element(escadron[i].x, escadron[i].y, 100,10, '|', '', ''); 
         salve.push(projectile);
     }
 
@@ -39,28 +39,7 @@ let middlePlayer = player.size/2;
 
 // fonction MAIN
 function update(){
-    document.getElementById('music').play();
-    document.getElementById('music').volume = 0.2;
-    ctx.font = '35px serif';
-    ctx.fillStyle = 'lime';
-    ctx.fillText('PUSH ENTER FOR PLAY !!!', middleWidth-200, middleHeight);
-            
+    begining();
     
-    // on efface l'intégralité de la page à chaque frame
-    drawAliens();
-    player.draw('lime');
-
-    for (i=0;i<escadron.length;i++){
-        if ((escadron[i].x <= 0)||(escadron[i].x+escadron[i].size >= canvas.width)){
-            console.log('touché');
-        }
-    }
-        
-        
-   
-     
-
-    }
-
-
-    window.requestAnimationFrame(update);
+}
+window.requestAnimationFrame(update);

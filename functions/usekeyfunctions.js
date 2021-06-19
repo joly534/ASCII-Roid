@@ -17,8 +17,16 @@ window.addEventListener("keydown", function (event) {
         break;
         
       case "Enter":
-        game === 'Jouez';
-        console.log('entrée appuyée');
+        switch (game){
+          case true:
+            //pass;
+          break;
+          case false:
+            game = true;
+            drawBattle();
+          break;
+
+        }
         break;
 
       //le joueur tire
