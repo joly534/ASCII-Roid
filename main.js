@@ -14,9 +14,11 @@ let posX = 80;
 let posY = 50;
 let game = false;
 
+let wallSound = document.getElementById('touchWall');
+
 for (let i=1;i<=6;i++) {
     for (let j=1; j<=10; j++){
-        let alien = new Element(posX,posY, 1, 20, "╬",);
+        let alien = new Element(posX,posY, 1, 20, "╬");
         escadron.push(alien);
         posX += 80;
     };
@@ -37,20 +39,28 @@ let middlePlayer = player.size/2;
 
 // fonction MAIN
 function update(){
-
+    document.getElementById('music').play();
+    document.getElementById('music').volume = 0.2;
     ctx.font = '35px serif';
     ctx.fillStyle = 'lime';
     ctx.fillText('PUSH ENTER FOR PLAY !!!', middleWidth-200, middleHeight);
             
-    setInterval(() => {
-        // on efface l'intégralité de la page à chaque frame
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-        drawAliens();
-        player.draw('lime');
-        alienShoot();
-    }, 10); 
+    
+    // on efface l'intégralité de la page à chaque frame
+    drawAliens();
+    player.draw('lime');
+
+    for (i=0;i<escadron.length;i++){
+        if ((escadron[i].x <= 0)||(escadron[i].x+escadron[i].size >= canvas.width)){
+            console.log('touché');
+        }
+    }
+        
+        
+   
      
 
     }
 
-update();
+
+    window.requestAnimationFrame(update);

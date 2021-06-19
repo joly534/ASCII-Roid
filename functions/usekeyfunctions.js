@@ -23,8 +23,8 @@ window.addEventListener("keydown", function (event) {
 
       //le joueur tire
       case " ":       
-          console.log('shoot');
           playerShoot();
+          fireSound();
       break;
       default:
         return; // Quitter lorsque cela ne gère pas l'événement touche.

@@ -1,5 +1,5 @@
 //prototype Element du jeu 
-let Element=function(x,y,speed,size,content){
+let Element=function(x,y,speed,size,content,audioFire,audioTouch){
     this.x = x,
     this.y = y,
     this.speed = speed,
@@ -7,6 +7,8 @@ let Element=function(x,y,speed,size,content){
     this.middle = this.size/4;
     this.mesure = 'px',
     this.content = content,
+    this.audiofire = audioFire,
+    this.audioTouch = audioTouch,
     // on dessine l'élément
     this.draw= function(color){
         ctx.font = this.size + this.mesure +' serif';
@@ -14,11 +16,12 @@ let Element=function(x,y,speed,size,content){
         ctx.fillText(this.content, this.x, this.y);
     },
     // l'élément se deplace horizontalement
-    this.horizontalMove=function(){
+    this.horizontalMove=function(audio){
         this.x -= this.speed;
         if ((this.x <= 0)||(this.x+this.size >= canvas.width)){
             this.y += this.size;
             this.speed = -this.speed;
+            audio.play();
         }         
     }
     // l'élément se deplace
