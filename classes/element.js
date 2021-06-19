@@ -22,7 +22,11 @@ let Element=function(x,y,speed,size,content){
         }         
     }
     // l'élément se deplace
-    this.verticalMove=function(){
+    this.verticalDownMove=function(){
         this.y += 1;     
+    }
+
+    this.verticalUpMove = function(){
+        this.y -= 2;
     }
 }

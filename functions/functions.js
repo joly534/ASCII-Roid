@@ -17,12 +17,19 @@ function drawAliens(){
 function alienShoot(){  
     for (let j=50;j< salve.length;j++){
         salve[j].draw('lime');       
-        salve[j].verticalMove();
+        salve[j].verticalDownMove();
         if ((salve[j].x >= player.x)&&(salve[j].y+salve[j].size >= player.x)){
             ctx.clearRect(0,0,canvas.width, canvas.height);
             gameOver();
             console.log('game over');
         }
     }
+
+}
+
+function playerShoot(){
+    let tir = new Element(player.x, player.y,' ',50, '+');
+    tir.draw('orange');
+    tir.verticalUpMove();
 
 }
