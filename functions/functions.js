@@ -6,27 +6,32 @@ function begining(){
     ctx.fillStyle = 'blue';
     ctx.strokeStyle = "white";
     let text = 'ASCII-ROID : PUSH "ENTER" FOR PLAY !!!';
-    let size = howbig(text).width;
-    let halfSize = size/2;
-    ctx.fillText(text, middleWidth - halfSize, middleHeight);
-    ctx.strokeText(text, middleWidth - halfSize, middleHeight);
+    let width = howbig(text).width;
+    let halfWidth = width/2;
+    ctx.fillText(text, middleWidth - halfWidth, middleHeight);
+    ctx.strokeText(text, middleWidth - halfWidth, middleHeight);
 }
 
 // LA PARTIE EST FINIE
 function gameOver(){
+    drawMessage('!!! GAME OVER !!!',middleWidth)
     ctx.font = '35px serif';
     ctx.fillStyle = 'lime';
     ctx.fillText('!!! GAME OVER !!!', middleWidth-200, middleHeight);
 }
 // FONCTION QUI RETOURNE LA TAILLE D'UN TEXTE
 function howbig(text){
-    let metrics = ctx.measureText(text);
-    return metrics;
+    let size = ctx.measureText(text);
+    return size;
 }
 
 // FONCTION QUI AFFICHE UN TEXTE
-function drawMessage(message){
-    ctx
+function drawMessage(message,x,y,sizeFont,colorFill,colorStroke){
+    ctx.font = sizeFont + ' serif';
+    ctx.fillStyle = colorFill;
+    ctxStrokeStyle = colorStroke;
+    ctx.fillText(message,x,y);
+    ctx.strokeText(message,x,y);
 }
 
 // ON DESSINE LES elements du jeu
