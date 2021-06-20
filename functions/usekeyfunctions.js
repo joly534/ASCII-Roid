@@ -5,22 +5,24 @@ window.addEventListener("keydown", function (event) {
     switch (event.key) { 
       // le joueur bouge     
       case "ArrowLeft":
-        player.x -= player.speed;
-        player.draw();
-        if(player.x <= 0){
-          player.speed = 0;
-        }
+        player.setDir(-1);        
         break;
+
       case "ArrowRight":     
-        player.x += player.speed;
-        player.draw();
+       player.setDir(1);
         break;
         
       //le joueur tire
-      case " ":       
-          playerShoot();
+      case " ":      
+      let tir = new Projectile(player.x, player.y,1,1, '+','','');
+      salvePlayer.push(tir);
       break;
+
       default:
         return; // Quitter lorsque cela ne gère pas l'événement touche.
      }
+})
+
+window.addEventListener("keyup", function (event){
+  player.setDir(0);
 })

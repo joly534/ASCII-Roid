@@ -29,59 +29,45 @@ function gameOver(){
     ctx.fillText('!!! GAME OVER !!!', middleWidth-200, middleHeight);
 }
 
-// FONCTION QUI RETOURNE LA TAILLE D'UN TEXTE
+// FONCTION QUI RETOURNE LE WIDTH D'UN TEXTE
 function howbig(text){
     let size = ctx.measureText(text);
     return size;
 }
 
-// FONCTION QUI AFFICHE UN TEXTE
-function drawMessage(message,x,y,sizeFont,colorFill,colorStroke){
-    ctx.font = sizeFont + ' serif';
-    ctx.fillStyle = colorFill;
-    ctxStrokeStyle = colorStroke;
-    ctx.fillText(message,x,y);
-    ctx.strokeText(message,x,y);
-}
-
-// ON DESSINE LES elements du jeu
+// ON DESSINE LE jeu
 function drawBattle(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
-    for (let i=0;i<escadron.length;i++){
-        
+    player.draw('blue','lime');
+    player.move();
+    for (let i=0;i<escadron.length;i++){        
         escadron[i].draw('white','blue');
         escadron[i].horizontalMove(wallSound);
     }
-    player.draw('blue','lime');
-    drawAlienShoot();
+    prepareShoot();
+    for (let j=0;j<=salveEnnemy.length;j++){
+        salveEnnemy[j].draw(); 
+        salveEnnemy[j].verticalDownMove(1);
+        
+    }
+
+    for (let k=0;k<=salvePlayer.length; k++){
+        salvePlayer[k].draw('lime','orange');
+        salvePlayer[k].verticalUpMove(-1);
+        firePlayerSound();
+
+    }
     requestAnimationFrame(drawBattle);
 }
 
 function prepareShoot(){
     setInterval(() => {
         for (i=50;i<=escadron.length;i++){
-                let projectile = new Element(escadron[i].x, escadron[i].y, 1,3, '.', '', ''); 
-                salveEnnemy.push(projectile);
-                fireEnnemySound();
-        }
-        
+            let projectile = new Projectile(escadron[i].x, escadron[i].y,3,'blue', 'white'); 
+            salveEnnemy.push(projectile);
+            fireEnnemySound();
+        }        
     }, 2000);
-}
-
-function drawAlienShoot(){  
-    for (let j=0;j< salveEnnemy.length;j++){
-        salveEnnemy[j].draw('blue', 'white'); 
-        salveEnnemy[j].verticalDownMove();
-    }
-}
-
-function playerShoot(){
-    let tir = new Element(player.x, player.y,1,1, '+','','');
-    tir.draw('lime','orange');
-    fireplayerSound();
-    tir.verticalUpMove();
-    requestAnimationFrame(playerShoot);
-
 }
 
 function fireEnnemySound(){

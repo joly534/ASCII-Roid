@@ -1,7 +1,8 @@
 //prototype Element du jeu 
-let Element=function(x,y,speed,size,content,audioFire,audioTouch){
+let Player=function(x,y,speed,size,content,audioFire){
     this.x = x,
     this.y = y,
+    this.xDir = 0;
     this.speed = speed,
     this.size = size,
     this.middle = this.size/4;
@@ -9,7 +10,6 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
     this.state = true;
     this.content = content,
     this.audiofire = audioFire,
-    this.audioTouch = audioTouch,
 
     // on dessine l'élément
     this.draw= function(colorFill, colorStroke){
@@ -19,25 +19,11 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
         ctx.fillText(this.content, this.x, this.y);
         ctx.strokeText(this.content, this.x, this.y);
     },
-
-    // l'élément se deplace horizontalement
-    this.horizontalMove=function(audio){
-        this.x -= this.speed;
-        if ((this.x <= 0)||(this.x+this.size >= canvas.width)){
-            this.y += 15;
-            this.speed = -this.speed;
-            // audio.play();
-        }         
-    },
-
-    // l'élément descent
-    this.verticalDownMove=function(){
-        this.y += this.speed;     
+    this.setDir = function(dir) {
+        this.xDir = dir;
     }
-
-    // L'élément monte 
-    this.verticalUpMove = function(){
-        this.y -= this.speed;
+    this.move = function(){
+        this.x += this.xDir * 5;
     }
 
     this.explode = function(){
