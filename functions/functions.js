@@ -49,41 +49,47 @@ function drawBattle(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     for (let i=0;i<escadron.length;i++){
         
-        escadron[i].draw('white');
+        escadron[i].draw('white','blue');
         escadron[i].horizontalMove(wallSound);
     }
-    player.draw('lime');
+    player.draw('blue','lime');
     drawAlienShoot();
     requestAnimationFrame(drawBattle);
 }
 
 function prepareShoot(){
-    for (i=0;i<=escadron.length;i++){
-        if (escadron[i].x == player.x){
-            console.log(escadron[i].x);
-            alienRank.push(escadron[i]);
-            // console.log(alienRank.length);
-            let projectile = new Element(escadron[i].x, escadron[i].y, 1,3, '.', '', ''); 
-            salve.push(projectile);
+    setInterval(() => {
+        for (i=50;i<=escadron.length;i++){
+                let projectile = new Element(escadron[i].x, escadron[i].y, 1,3, '.', '', ''); 
+                salveEnnemy.push(projectile);
+                fireEnnemySound();
         }
-    }
+        
+    }, 2000);
 }
 
 function drawAlienShoot(){  
-    for (let j=0;j< salve.length;j++){
-        salve[j].draw('lime'); 
-        salve[j].verticalDownMove();
+    for (let j=0;j< salveEnnemy.length;j++){
+        salveEnnemy[j].draw('blue', 'white'); 
+        salveEnnemy[j].verticalDownMove();
     }
 }
 
 function playerShoot(){
-    let tir = new Element(player.x, player.y,' ',50, '+','','');
-    tir.draw('orange');
+    let tir = new Element(player.x, player.y,1,1, '+','','');
+    tir.draw('lime','orange');
+    fireplayerSound();
     tir.verticalUpMove();
+    requestAnimationFrame(playerShoot);
 
 }
 
-function fireSound(){
-    let fire = document.getElementById('laser');
+function fireEnnemySound(){
+    let fire = document.getElementById('laserEnnemy');
+    fire.play();
+}
+
+function firePlayerSound(){
+    let fire = document.getElementById('laserPlayer');
     fire.play();
 }

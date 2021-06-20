@@ -19,7 +19,6 @@ window.addEventListener("keydown", function (event) {
       //le joueur tire
       case " ":       
           playerShoot();
-          fireSound();
       break;
       default:
         return; // Quitter lorsque cela ne gère pas l'événement touche.

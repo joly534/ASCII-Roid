@@ -11,10 +11,12 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
     this.audioTouch = audioTouch,
 
     // on dessine l'élément
-    this.draw= function(color){
+    this.draw= function(colorFill, colorStroke){
         ctx.font = this.size + this.mesure +' serif';
-        ctx.fillStyle = color;
+        ctx.fillStyle = colorFill;
+        ctx.strokeStyle = colorStroke
         ctx.fillText(this.content, this.x, this.y);
+        ctx.strokeText(this.content, this.x, this.y);
     },
 
     // l'élément se deplace horizontalement
@@ -27,13 +29,14 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
         }         
     },
 
-    // l'élément monte
+    // l'élément descent
     this.verticalDownMove=function(){
-        this.y += 1;     
+        this.y += this.speed;     
     }
 
-    // L'élément descent
+    // L'élément monte 
     this.verticalUpMove = function(){
-        this.y -= 1;
+        this.y -= this.speed;
     }
+
 }

@@ -9,7 +9,8 @@ let middleHeight = canvas.height/2;
 
 
 let escadron = [];
-let salve = [];
+let salveEnnemy = [];
+let salveEPlayer = [];
 let alienRank = [];
 let posX = 80;
 let posY = 50;
