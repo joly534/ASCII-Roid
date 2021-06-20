@@ -6,6 +6,7 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
     this.size = size,
     this.middle = this.size/4;
     this.mesure = 'rem',
+    this.state = true;
     this.content = content,
     this.audiofire = audioFire,
     this.audioTouch = audioTouch,
@@ -39,4 +40,7 @@ let Element=function(x,y,speed,size,content,audioFire,audioTouch){
         this.y -= this.speed;
     }
 
+    this.explode = function(){
+        
+    }
 }
