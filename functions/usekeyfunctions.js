@@ -16,19 +16,6 @@ window.addEventListener("keydown", function (event) {
         player.draw();
         break;
         
-      case "Enter":
-        switch (game){
-          case true:
-            //pass;
-          break;
-          case false:
-            game = true;
-            drawBattle();
-          break;
-
-        }
-        break;
-
       //le joueur tire
       case " ":       
           playerShoot();
