@@ -1,6 +1,6 @@
 // AVANT QUE LA PARTIE COMMENCE
 function begining(){
-    playSound('music');
+    // playSound('music');
     ctx.font = '4rem serif';
     ctx.fillStyle = 'blue';
     ctx.strokeStyle = "white";
@@ -34,50 +34,6 @@ function howbig(text){
     return size;
 }
 
-// ON DESSINE LE jeu
-function drawBattle(){
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    
-    player.draw('blue','lime');
-    player.move();
-
-   
-    
-    // prepareShoot();
-    for (let i=0;i<escadron.length;i++){        
-        escadron[i].draw('white','blue',wallSound);
-        escadron[i].move();
-    }
-    
-    for (let m=0;m<salveEnnemy.length;m++){
-        salveEnnemy[m].draw(); 
-        salveEnnemy[m].verticalDownMove(1);
-        if (salveEnnemy[m].y > canvas.height){
-            salveEnnemy.pop();
-        } else if ((salveEnnemy[m].y == player.y) && (salveEnnemy[m].x == player.x)){
-            console.log('touché')
-            game == false;
-        }
-        
-    }
-
-    for (let k=0;k<salvePlayer.length; k++){
-        salvePlayer[k].draw('lime','orange');
-        salvePlayer[k].verticalUpMove(1);
-
-    }
-    window.requestAnimationFrame(drawBattle);
-}
-
-function prepareShoot(){
-    setInterval(() => {
-        for (i=50; i <escadron.length;i++){
-            let projectileEnnemy = new Projectile(escadron[i].x, escadron[i].y, 3, 'blue', 'white'); 
-            salveEnnemy.push(projectileEnnemy);
-            playSound('laserEnnemy');
-        }        
-    }, 3000);
-}
 
 function playSound(music){
     let sound = document.getElementById(music);

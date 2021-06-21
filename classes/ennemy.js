@@ -1,12 +1,13 @@
 //prototype Element du jeu 
-let Ennemy=function(x,y,speed,size,content,audioTouch){
+let Ennemy=function(x,y,speed,size,content){
     this.x = x,
     this.y = y,
     this.speed = speed,
     this.size = size,
-    this.middle = this.size/4,
     this.content = content,
-    this.audioTouch = audioTouch,
+    this.middleX = this.x + this.size/2, 
+    this.middleY= this.y + this.size/2, 
+    this.centerCoord = [this.middleX,this.middleY];
 
     // on dessine l'élément
     this.draw= function(colorFill, colorStroke){
@@ -26,4 +27,5 @@ let Ennemy=function(x,y,speed,size,content,audioTouch){
             playSound('touchWall');
         }         
     }
+
 }

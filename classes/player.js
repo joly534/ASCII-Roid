@@ -5,13 +5,15 @@ let Player=function(x,y,speed,size,content,audioFire){
     this.xDir = 0;
     this.speed = speed,
     this.size = size,
-    this.middle = this.size/4;
     this.mesure = 'rem',
     this.state = true;
     this.content = content,
     this.audiofire = audioFire,
+    this.middleX = this.x + this.size/2, 
+    this.middleY= this.y + this.size/2, 
+    this.centerCoord = [this.middleX,this.middleY],
 
-    // on dessine l'élément
+    // fonction dessiner l'élément
     this.draw= function(colorFill, colorStroke){
         ctx.font = this.size + this.mesure +' serif';
         ctx.fillStyle = colorFill;
@@ -19,14 +21,12 @@ let Player=function(x,y,speed,size,content,audioFire){
         ctx.fillText(this.content, this.x, this.y);
         ctx.strokeText(this.content, this.x, this.y);
     },
+
     this.setDir = function(dir) {
         this.xDir = dir;
     }
     this.move = function(){
-        this.x += this.xDir * 5;
-    }
-
-    this.explode = function(){
-        
+        this.x += this.xDir * 3;
+        this.middleX = this.x + this.size/2;
     }
 }

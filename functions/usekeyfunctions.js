@@ -13,6 +13,7 @@ window.addEventListener("keydown", function (event) {
 
       case "ArrowRight":     
        player.setDir(1);
+       
        if (player.x+34>=canvas.width){
          player.setDir(0);
        }       
@@ -20,7 +21,7 @@ window.addEventListener("keydown", function (event) {
         
       //le joueur tire
       case " ":      
-      let tir = new Projectile(player.x, player.y,3 , '+','','');
+      let tir = new Projectile(player.x, player.y,3);
       salvePlayer.push(tir);
       playSound('laserPlayer');
       break;
