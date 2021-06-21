@@ -17,14 +17,15 @@ let game = false;
 
 let wallSound = document.getElementById('touchWall');
 
-for (let i=1;i<=6;i++) {
-    for (let j=1; j<=10; j++){
-        let alien = new Ennemy(posX,posY, 1, 1, "╬",'',"");
-        escadron.push(alien);
-        posX += 80;
-    };
-    posY+= 30;
-    posX = 80;
+ // ON INSTANCIE LES ALIENS
+ for (let i=1;i<=6;i++) {
+  for (let j=1; j<=10; j++){
+      let alien = new Ennemy(posX,posY, 1, 1, "╬",'',"");
+      escadron.push(alien);
+      posX += 80;
+  };
+  posY+= 30;
+  posX = 80;
 }
 
 
@@ -35,16 +36,23 @@ let middlePlayer = player.size/2;
 begining();
 
 // fonction MAIN
-function play(){
-    switch (game){
+function update(){
+    
+  switch (game){
         case true:
-          //pass;
+          ctx.clearRect(0,0,canvas.width,canvas.height)
+          ctx.font = '5rem serif';
+          ctx.fillStyle = 'blue';
+          ctx.strokeStyle = 'white';
+          ctx.fillText('GAME OVER', canvas.width/2, canvas.height/2);
+          ctx.strokeText('GAME OVER', canvas.width/2, canvas.height/2);
         break;
         case false:
           game = true;
           drawBattle();
+          prepareShoot();
         break;  
     }
     
-window.requestAnimationFrame(play);
 }
+update()

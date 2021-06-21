@@ -10,8 +10,7 @@ button{
 }
 .center{
     text-align: center;
-    border: 1px solid red;
-    margin-bottom: 2em;;
+        margin-bottom: 2em;;
 }
 #earth{
     background-image:url('images/space1.jpg');
