@@ -27,7 +27,7 @@ let middlePlayer = player.size/2;
 // instanciation des aliens
 for (let i=1;i<=6;i++) {
   for (let j=1; j<=10; j++){
-    let alien = new Ennemy(posX,posY, 1, 40,'¤ ');
+    let alien = new Ennemy(posX,posY, 1, 30,'¤');
     escadron.push(alien);
     posX += 80;
   };
@@ -71,7 +71,7 @@ function update(){
         salvePlayer[k].verticalUpMove(1);
         for (let l=0;l<escadron.length;l++){
           let colision = getDistance(salvePlayer[k].x,escadron[l].x,salvePlayer[k].y,escadron[l].y);
-          if (colision <=4){
+          if (colision <=7){
             escadron.splice(l,1);
             salvePlayer.splice(k,1);
             score += 10;
