@@ -38,7 +38,7 @@ setInterval(() => {
   for (i=50; i <escadron.length;i++){
       let projectileEnnemy = new Projectile(escadron[i].x, escadron[i].y, 3, 'blue', 'white'); 
       salveEnnemy.push(projectileEnnemy);
-      // playSound('laserEnnemy');
+      playSound('laserEnnemy');
   }        
 }, 3000);
 

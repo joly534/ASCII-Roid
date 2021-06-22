@@ -1,6 +1,6 @@
 // AVANT QUE LA PARTIE COMMENCE
 function begining(){
-    // playSound('music');
+    playSound('music');
     ctx.font = '4rem serif';
     ctx.fillStyle = 'blue';
     ctx.strokeStyle = "white";
