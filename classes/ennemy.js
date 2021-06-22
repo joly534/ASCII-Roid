@@ -11,7 +11,7 @@ let Ennemy=function(x,y,speed,size,content){
 
     // on dessine l'élément
     this.draw= function(colorFill, colorStroke){
-        ctx.font = this.size +'rem serif';
+        ctx.font = this.size +'px serif';
         ctx.fillStyle = colorFill;
         ctx.strokeStyle = colorStroke;
         ctx.fillText(this.content, this.x, this.y);

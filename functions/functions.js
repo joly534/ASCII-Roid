@@ -35,6 +35,16 @@ function howbig(text){
 }
 
 
+
+// FONNCTION QUI CALCULE LA DISQTANCE EUCLIDIENNE ENTRE DEUX POINTS AVEC COORDONNEES
+function getDistance(x1,x2,y1,y2){
+    let a = x1-x2;
+    let b = y1 - y2;
+    // Math.sqrt() renvoie la racine carre d'un nombre
+    let c = Math.sqrt(a*a + b*b);
+    return c;
+}
+
 function playSound(music){
     let sound = document.getElementById(music);
     sound.play();
@@ -45,4 +55,17 @@ function stopSound(music){
     let sound = document.getElementById(music);    
     sound.pause();
     sound.currentTime = 0;
+}
+
+function explode(){
+    if (escadron.length != 60){
+        playSound('explosion');
+
+    }
+}
+
+function playThePlayList(){
+    for (let i = 0; i<playList.length; i ++){
+        playThePlayList[i].playSound()
+    }
 }

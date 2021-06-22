@@ -5,7 +5,7 @@ let Player=function(x,y,speed,size,content,audioFire){
     this.xDir = 0;
     this.speed = speed,
     this.size = size,
-    this.mesure = 'rem',
+    this.mesure = 'px',
     this.state = true;
     this.content = content,
     this.audiofire = audioFire,
@@ -29,4 +29,6 @@ let Player=function(x,y,speed,size,content,audioFire){
         this.x += this.xDir * 3;
         this.middleX = this.x + this.size/2;
     }
+
+    
 }
